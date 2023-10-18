@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .theme-text {
+    @apply text-primary-text-light dark:text-primary-text-dark;
+  }
+  .theme-extra-bg-2 {
+    @apply bg-extra-bg-2-light dark:bg-extra-bg-2-dark;
+  }
+  .theme-main-bg-highlight {
+    @apply bg-main-bg-highlight-light dark:bg-main-bg-highlight-dark;
+  }
+  .theme-extra-bg-column {
+    @apply bg-extra-bg-column-light dark:bg-extra-bg-column-dark;
+  }
+  .theme-border-b {
+    @apply border-b border-b-main-bg-light dark:border-b-main-bg-dark;
+  }
+}
