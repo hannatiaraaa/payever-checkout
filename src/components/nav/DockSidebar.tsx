@@ -5,16 +5,23 @@ import RightDropdown from '@/components/icons/RightDropdown';
 import navList from '@/configs/navList';
 import Link from 'next/link';
 import DockSidebarIcons from '../icons/DockSidebarIcons';
+import type { TPageName } from '@/types/nav.type';
 
 type Props = {
+  id?: string;
   activeNav?: string;
   onClose?: React.MouseEventHandler<HTMLButtonElement>;
+  onNavClick?: (name?: TPageName) => void;
+  className?: string;
 };
 
-const DockSidebar = ({ activeNav, onClose }: Props) => {
+const DockSidebar = ({ id, activeNav, onClose, onNavClick = () => {}, className }: Props) => {
   const [showNav, setShowNav] = useState(true);
   return (
-    <div className='px-2 py-4 rounded-xl theme-extra-bg-2 w-1/4'>
+    <div
+      id={id}
+      className={`px-2 py-4 rounded-xl theme-extra-bg-2 lg:w-1/4 ${className}`}
+    >
       <div className='px-2 flex items-center justify-between gap-2 mb-4'>
         <p className='text-2xl font-bold theme-text'>Checkout</p>
         <button onClick={onClose}>
@@ -39,6 +46,7 @@ const DockSidebar = ({ activeNav, onClose }: Props) => {
       {showNav &&
         navList.map(({ name, route }) => (
           <Link
+            onClick={() => onNavClick(name)}
             key={name}
             href={route as string}
             className={`w-full flex gap-2 py-2 px-2 rounded-md ${

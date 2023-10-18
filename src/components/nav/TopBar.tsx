@@ -18,10 +18,10 @@ const RenderIcon = ({ src, height = 6 }: IconProps) => (
 
 type Props = {
   theme?: TThemeType;
-  openSidebar?: React.MouseEventHandler<HTMLButtonElement>;
+  toggleSidebar?: React.MouseEventHandler<HTMLButtonElement>;
 };
 
-const TopBar = ({ theme, openSidebar }: Props) => {
+const TopBar = ({ theme, toggleSidebar }: Props) => {
   const { dark, light } = themeIcons;
   const icons = theme === 'light' ? light : theme === 'dark' ? dark : dark;
 
@@ -29,7 +29,7 @@ const TopBar = ({ theme, openSidebar }: Props) => {
     <div className='flex items-center justify-between gap-2'>
       <button
         className='flex-1'
-        onClick={openSidebar}
+        onClick={toggleSidebar}
       >
         <RenderIcon src={icons.dockSidebar} />
       </button>
