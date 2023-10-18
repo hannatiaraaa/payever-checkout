@@ -10,3 +10,8 @@ export type TCommonItem = {
   hasToggle?: boolean;
   rightText?: string;
 };
+
+export type TForwardItem = {
+  name: string;
+  icon?: StaticImport;
+};
