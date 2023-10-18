@@ -27,7 +27,7 @@ const CommonItem = ({ name, theme, checked, icon, iconKey, hasToggle, rightText 
           />
         ) : null}
         {rightText && (
-          <button disabled={hasToggle}>
+          <button>
             <p className='text-base font-medium text-blue-highlight'>{rightText}</p>
           </button>
         )}
