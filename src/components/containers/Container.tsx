@@ -3,6 +3,7 @@ import TopBar from '../nav/TopBar';
 import DockSidebar from '../nav/DockSidebar';
 import { useTheme } from 'next-themes';
 import { closeDockSidebarAnimation, openDockSidebarAnimation } from '@/animations/components/dockSidebar.animation';
+import { enterContentPageTransition, enterDockSidebarTransition } from '@/animations/page.animation';
 import type { TPageName } from '@/types/nav.type';
 
 type Props = {
@@ -45,6 +46,13 @@ const Container = ({ children, className, activeNav }: Props) => {
     setShowFullSidebar(!showFullSidebar);
   };
 
+  const onPageTransition = (name: TPageName) => {
+    if (name !== 'Bikezilla' && name !== activeNav) {
+      enterDockSidebarTransition(sidebar);
+      enterContentPageTransition('#content-page');
+    }
+  };
+
   return (
     <div className={`w-screen lg:h-screen flex flex-col px-4 pt-4 pb-8 gap-4 ${className}`}>
       <TopBar
@@ -59,6 +67,7 @@ const Container = ({ children, className, activeNav }: Props) => {
           id='dock-sidebar'
           activeNav={activeNav}
           onClose={closeSidebar}
+          onNavClick={(name) => onPageTransition(name as TPageName)}
         />
 
         <div
