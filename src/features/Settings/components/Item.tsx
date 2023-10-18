@@ -33,7 +33,9 @@ const SettingsItem = ({ item }: Props) => {
             <Image
               src={icon}
               alt={name}
-              className='h-4 aspect-square'
+              width={16}
+              height={16}
+              className='h-4 w-auto aspect-square'
             />
           )}
         </div>

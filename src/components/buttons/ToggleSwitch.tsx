@@ -11,6 +11,7 @@ const ToggleSwitch = ({ checked, onClick }: Props) => {
         className='sr-only peer'
         checked={checked}
         onClick={onClick}
+        readOnly
       />
       <div className="w-11 h-6 rounded-full peer bg-[#494A4B] peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-highlight"></div>
     </label>

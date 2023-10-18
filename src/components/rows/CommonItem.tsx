@@ -16,7 +16,7 @@ const CommonItem = ({ name, theme, checked, icon, iconKey, hasToggle, rightText 
       <Image
         src={icon ?? themeIcon}
         alt={name}
-        className='w-4 object-contain'
+        className='h-4 w-auto object-contain'
       />
       <p className='flex-1 text-base theme-text'>{name}</p>
       <div className='flex items-center gap-2'>

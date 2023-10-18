@@ -5,7 +5,7 @@ import { otherPayments, santander } from '@/configs/paymentList';
 
 const PaymentOptions = () => {
   return (
-    <div className='gap-3 w-2/3 '>
+    <div className='gap-3 w-full lg:w-2/3 '>
       <PageTitle title='Payment Options' />
       <PaymentList
         title='Santander'

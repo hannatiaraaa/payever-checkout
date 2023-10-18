@@ -9,7 +9,7 @@ import Button from '@/components/buttons/Button';
 
 const Connect = () => {
   return (
-    <div className='gap-3 flex flex-col w-2/3'>
+    <div className='gap-3 flex flex-col w-full lg:w-2/3'>
       <PageTitle title='Channels' />
       <RowContainer>
         {channels.map((name) => (

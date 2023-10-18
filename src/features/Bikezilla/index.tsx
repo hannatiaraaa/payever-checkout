@@ -16,10 +16,10 @@ const Bikezilla = ({ checkoutName = 'Bikezilla' }: Props) => {
   const sections = ['Account', 'Billing & Shipping', 'Payment'];
 
   return (
-    <div className='px-4 w-full'>
+    <div className='w-full'>
       <CheckoutName name={checkoutName} />
       <div className='w-full grid place-items-center'>
-        <div className='w-2/3 gap-3 flex flex-col'>
+        <div className='lg:w-2/3 gap-3 flex flex-col'>
           <Image
             src={systemTheme === 'light' ? themeIcons.light.payever : themeIcons.dark.payever}
             alt='payever'

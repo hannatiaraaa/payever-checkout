@@ -11,8 +11,10 @@ type ButtonProps = {
 };
 
 type Props = {
+  id?: string;
   isOpen: boolean;
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  onGetStartedClick?: React.MouseEventHandler<HTMLButtonElement>;
+  onBackClick?: React.MouseEventHandler<HTMLButtonElement>;
 };
 
 const RenderButton = ({ className, textClassName, title, onClick }: ButtonProps) => {
@@ -26,11 +28,13 @@ const RenderButton = ({ className, textClassName, title, onClick }: ButtonProps)
   );
 };
 
-const GetStartedModal = ({ isOpen, setIsOpen }: Props) => {
+const GetStartedModal = ({ id, isOpen, onGetStartedClick, onBackClick }: Props) => {
   return (
     <ReactModal
+      id={id}
+      ariaHideApp={false}
       isOpen={isOpen}
-      className='max-w-[20%] backdrop-blur-xl shadow-md shadow-black/20 fixed -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2 bg-main-bg-light/90 dark:bg-main-bg-dark/90 px-4 py-6 rounded-2xl border border-solid border-black/10 dark:border-[#3B3B3B] outline-none grid place-items-center text-center gap-4'
+      className='lg:max-w-[20%] backdrop-blur-xl shadow-md shadow-black/20 fixed -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2 bg-main-bg-light/90 dark:bg-main-bg-dark/90 px-4 py-6 rounded-2xl border border-solid border-black/10 dark:border-[#3B3B3B] outline-none grid place-items-center text-center gap-4'
       overlayClassName='fixed z-[1] inset-0 bg-black/30'
     >
       <Image
@@ -47,12 +51,13 @@ const GetStartedModal = ({ isOpen, setIsOpen }: Props) => {
           title='Get Started'
           className='bg-gradient-to-r from-[#2482E7] to-[#146DCC]'
           textClassName='text-white'
-          onClick={() => setIsOpen(false)}
+          onClick={onGetStartedClick}
         />
         <RenderButton
           title='Back to Dashboard'
           className='bg-[#CCC5C4] dark:bg-grey'
           textClassName='theme-text'
+          onClick={onBackClick}
         />
       </div>
       <p className='text-xs theme-text font-medium'>Hereby I confirm the Terms and Pricing of the payever Settings.</p>
